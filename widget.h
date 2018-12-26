@@ -9,6 +9,14 @@
 
 #include <Python.h>
 
+enum{
+    Method_sum = 0,
+    Method_sub = 1,
+    Method_mul = 2,
+    Method_div = 3,
+    Method_mod = 4,
+};
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -21,7 +29,7 @@ public:
 
     void CallPython(const QString file);
 
-    void CalulateMethod(const char * method, int type = 0);
+    void CalulateMethod(const char * method, int type = Method_sum);
 
 private slots:
     void choosePythonFile();

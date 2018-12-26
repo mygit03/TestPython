@@ -152,11 +152,11 @@ void Widget::CallPython(const QString file)
     m_pModule = pModule;
     m_pArgs = args;
 
-    CalulateMethod("sum", 0);
-    CalulateMethod("sub", 1);
-    CalulateMethod("mul", 2);
-    CalulateMethod("div", 3);
-    CalulateMethod("mod", 4);
+    CalulateMethod("sum", Method_sum);
+    CalulateMethod("sub", Method_sub);
+    CalulateMethod("mul", Method_mul);
+    CalulateMethod("div", Method_div);
+    CalulateMethod("mod", Method_mod);
 
     Py_Finalize();
 }
@@ -184,19 +184,19 @@ void Widget::CalulateMethod(const char *method, int type)
 
     // 显示结果
     switch (type) {
-    case 0:
+    case Method_sum:
         m_pSumLE->setText(QString::number(result));
         break;
-    case 1:
+    case Method_sub:
         m_pSubLE->setText(QString::number(result));
         break;
-    case 2:
+    case Method_mul:
         m_pMulLE->setText(QString::number(result));
         break;
-    case 3:
+    case Method_div:
         m_pDivLE->setText(QString::number(result));
         break;
-    case 4:
+    case Method_mod:
         m_pModLE->setText(QString::number(result));
         break;
     default:
